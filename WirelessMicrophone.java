@@ -23,4 +23,18 @@ public class WirelessMicrophone extends TeachingDevice {
     public int getSignalQuality() {
         return this.signalQuality;
     }
+
+    public void updateBatteryLevel(int newLevel) {
+        if (batteryLevel < 0 || batteryLevel > 100) {
+            throw new IllegalArgumentException("Mức pin phải từ 0 đến 100");
+        }
+        this.batteryLevel = newLevel;
+    }
+
+    public void updateSignalQuality(int newQuality) {
+        if (signalQuality < 0 || signalQuality > 100) {
+            throw new IllegalArgumentException("Chất lượng tín hiệu phải từ 0 đến 100");
+        }
+        this.signalQuality = newQuality;
+    }
 }

@@ -3,7 +3,7 @@ public class InvalidDeviceReadingException extends Exception {
     private int invalidValue;
 
     public InvalidDeviceReadingException(String deviceId, int invalidValue) {
-        super("Thiết bị " + deviceId + " không hợp lệ");
+        super("Invalid reading for device " + deviceId + ": " + invalidValue);
         this.deviceId = deviceId;
         this.invalidValue = invalidValue;
     }

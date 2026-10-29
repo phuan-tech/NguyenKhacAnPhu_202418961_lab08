@@ -19,4 +19,8 @@ public class AirConditionerRemote extends TeachingDevice {
     public boolean getIsResponsive() {
         return this.isResponsive;
     }
+
+    public void updateResponseState(boolean isResponsive) {
+        this.isResponsive = isResponsive;
+    }
 }

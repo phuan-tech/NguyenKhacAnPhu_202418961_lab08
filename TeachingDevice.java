@@ -51,6 +51,10 @@ public abstract class TeachingDevice {
         }
     }
 
+    public void removeAlertListener(DeviceAlertListener listener) {
+        alertListeners.remove(listener);
+    }
+
     public void changeStatus(DeviceStatus newStatus) {
         if (newStatus == this.status) {
             return;
@@ -58,5 +62,23 @@ public abstract class TeachingDevice {
 
         DeviceStatus oldStatus = this.status;
         this.status = newStatus;
+
+        this.onStatusChanged(new DeviceStatusChangedEventArgs(id, oldStatus, newStatus, LocalDateTime.now()));
+    }
+
+    protected void raiseAlert(String message, AlertSeverity severity) {
+        this.onAlertRaised(new DeviceAlertEventArgs(id, message, severity, LocalDateTime.now()));
+    }
+
+    protected void onStatusChanged(DeviceStatusChangedEventArgs event) {
+        for (DeviceStatusChangedListener listener : new ArrayList<>(this.statusListeners)) {
+            listener.onStatusChanged(this , event);
+        }
+    }
+
+    protected void onAlertRaised(DeviceAlertEventArgs event) {
+        for (DeviceAlertListener listener : new ArrayList<>(this.alertListeners)) {
+            listener.onAlertRaised(this, event);
+        }
     }
 }

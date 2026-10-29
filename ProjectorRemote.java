@@ -9,6 +9,7 @@ public class ProjectorRemote extends TeachingDevice {
 
         this.batteryLevel = batteryLevel;
     }
+    
     public void updateBatteryLevel(int newLevel) {
         this.batteryLevel = newLevel;
     }
