@@ -21,6 +21,12 @@ public class AirConditionerRemote extends TeachingDevice {
     }
 
     public void updateResponseState(boolean isResponsive) {
+        if (this.isResponsive == isResponsive) {
+            return;
+        }
         this.isResponsive = isResponsive;
+        if (this.isResponsive == false) {
+            raiseAlert("Air conditioner remote is no longer responding.", AlertSeverity.CRITICAL);
+        }
     }
 }
