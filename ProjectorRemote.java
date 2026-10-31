@@ -1,18 +1,21 @@
+// Nguyễn Khắc An Phú 202418961
+
 public class ProjectorRemote extends TeachingDevice {
     private int batteryLevel;
 
-    public ProjectorRemote(String id, String name, int batteryLevel) {
+    public ProjectorRemote(String id, String name, int batteryLevel) throws InvalidDeviceReadingException {
         super(id, name);
         if (batteryLevel < 0 || batteryLevel > 100) {
-            throw new IllegalArgumentException("Mức pin phải từ 0 đến 100");
+            throw new InvalidDeviceReadingException(this.getId(), batteryLevel);
         }
 
         this.batteryLevel = batteryLevel;
     }
     
-    public void updateBatteryLevel(int newLevel) {
+    // Cập nhật mức pin
+    public void updateBatteryLevel(int newLevel) throws InvalidDeviceReadingException{
         if (newLevel < 0 || newLevel > 100) {
-            throw new IllegalArgumentException("Mức pin phải từ 0 đến 100");
+            throw new InvalidDeviceReadingException(this.getId(), newLevel);
         }
 
         int oldLevel = this.batteryLevel;

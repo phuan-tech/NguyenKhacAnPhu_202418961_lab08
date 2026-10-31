@@ -1,10 +1,12 @@
+// Nguyễn Khắc An Phú 202418961
+
 import java.time.LocalDateTime;
 
 public class DeviceStatusChangedEventArgs {
-    private String deviceId;
-    private DeviceStatus oldStatus;
-    private DeviceStatus newStatus;
-    private LocalDateTime changedAt;
+    private final String deviceId;
+    private final DeviceStatus oldStatus;
+    private final DeviceStatus newStatus;
+    private final LocalDateTime changedAt;
 
     public DeviceStatusChangedEventArgs(String deviceId, DeviceStatus oldStatus, DeviceStatus newStatus, LocalDateTime changedAt) {
         this.deviceId = deviceId;

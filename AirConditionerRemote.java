@@ -1,3 +1,5 @@
+// Nguyến Khắc An Phú 202418961
+
 public class AirConditionerRemote extends TeachingDevice {
     private String assignedRoom;
     private boolean isResponsive;
@@ -16,10 +18,11 @@ public class AirConditionerRemote extends TeachingDevice {
         return this.assignedRoom;
     }
 
-    public boolean getIsResponsive() {
+    public boolean isResponsive() {
         return this.isResponsive;
     }
 
+    // Cập nhật khả năng phản hồi
     public void updateResponseState(boolean isResponsive) {
         if (this.isResponsive == isResponsive) {
             return;

@@ -1,8 +1,9 @@
+// Nguyến Khắc An Phú 202418961
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class DeviceMonitoringCoordinator implements AutoCloseable {
-
     private final List<TeachingDevice> devices;
     private final ConsoleNotificationService notificationService;
     private final DeviceAuditLogger auditLogger;
@@ -12,13 +13,13 @@ public class DeviceMonitoringCoordinator implements AutoCloseable {
 
     public DeviceMonitoringCoordinator(List<TeachingDevice> devices, ConsoleNotificationService notificationService,
                                     DeviceAuditLogger auditLogger, MaintenanceService maintenanceService) {
-
         this.devices = new ArrayList<>(devices);
         this.notificationService = notificationService;
         this.auditLogger = auditLogger;
         this.maintenanceService = maintenanceService;
     }
 
+    // Đăng kí
     public void subscribe() {
         if (subscribed) {
             return;
@@ -33,6 +34,7 @@ public class DeviceMonitoringCoordinator implements AutoCloseable {
         subscribed = true;
     }
 
+    // Hủy đăng kí
     public void unsubscribe() {
         if (!subscribed) {
             return;

@@ -1,6 +1,8 @@
+// Nguyễn Khắc An Phú 202418961
+
 public class InvalidDeviceReadingException extends Exception {
-    private String deviceId;
-    private int invalidValue;
+    private final String deviceId;
+    private final int invalidValue;
 
     public InvalidDeviceReadingException(String deviceId, int invalidValue) {
         super("Invalid reading for device " + deviceId + ": " + invalidValue);

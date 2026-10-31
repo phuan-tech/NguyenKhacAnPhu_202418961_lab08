@@ -1,3 +1,5 @@
+// Nguyễn Khắc An Phú 202418961
+
 import java.util.List;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
@@ -31,30 +33,35 @@ public abstract class TeachingDevice {
         return this.name;
     }
 
-    public DeviceStatus getDeviceStatus() {
+    public DeviceStatus getStatus() {
         return this.status;
     }
 
+    // Thêm người nghe thay đổi trạng thái
     public void addStatusChangedListener(DeviceStatusChangedListener listener) {
-        if (listener != null || !statusListeners.contains(listener)) {
+        if (listener != null && !statusListeners.contains(listener)) {
             statusListeners.add(listener);
         }
     }
 
+    // Xóa người nghe thay đổi trạng thái
     public void removeStatusChangedListener(DeviceStatusChangedListener listener) {
         statusListeners.remove(listener);
     }
 
+    // Thêm người nghe cảnh báo
     public void addAlertListener(DeviceAlertListener listener) {
-        if (listener != null || !alertListeners.contains(listener)) {
+        if (listener != null && !alertListeners.contains(listener)) {
             alertListeners.add(listener);
         }
     }
 
+    // Xóa người nghe cảnh báo
     public void removeAlertListener(DeviceAlertListener listener) {
         alertListeners.remove(listener);
     }
 
+    // Thay đổi trạng thái
     public void changeStatus(DeviceStatus newStatus) {
         if (newStatus == this.status) {
             return;
@@ -66,13 +73,14 @@ public abstract class TeachingDevice {
         this.onStatusChanged(new DeviceStatusChangedEventArgs(id, oldStatus, newStatus, LocalDateTime.now()));
     }
 
+    // Phát cảnh báo
     protected void raiseAlert(String message, AlertSeverity severity) {
         this.onAlertRaised(new DeviceAlertEventArgs(id, message, severity, LocalDateTime.now()));
     }
 
     protected void onStatusChanged(DeviceStatusChangedEventArgs event) {
         for (DeviceStatusChangedListener listener : new ArrayList<>(this.statusListeners)) {
-            listener.onStatusChanged(this , event);
+            listener.onStatusChanged(this, event);
         }
     }
 

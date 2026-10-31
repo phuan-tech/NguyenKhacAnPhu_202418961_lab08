@@ -1,10 +1,12 @@
+// Nguyến Khắc An Phú 202418961
+
 import java.time.LocalDateTime;
 
 public class DeviceAlertEventArgs {
-    private String deviceId;
-    private String message;
-    private AlertSeverity severity;
-    private LocalDateTime occurredAt;
+    private final String deviceId;
+    private final String message;
+    private final AlertSeverity severity;
+    private final LocalDateTime occurredAt;
 
     public DeviceAlertEventArgs(String deviceId, String message, AlertSeverity severity, LocalDateTime occurredAt) {
         this.deviceId = deviceId;

@@ -1,3 +1,5 @@
+// Nguyến Khắc An Phú 202418961
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +13,6 @@ public class DeviceAuditLogger implements DeviceStatusChangedListener {
 
     @Override
     public void onStatusChanged(Object sender, DeviceStatusChangedEventArgs event) {
-
         entries.add(event.getChangedAt() + ": "
                 + event.getDeviceId() + ", "
                 + event.getOldStatus() + " -> "

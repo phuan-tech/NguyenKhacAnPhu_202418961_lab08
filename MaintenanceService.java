@@ -1,3 +1,5 @@
+// Nguyễn Khắc An Phú 202418961
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +12,7 @@ public class MaintenanceService implements DeviceAlertListener {
         return Collections.unmodifiableList(requests);
     }
 
+    // Khi phát thông báo
     @Override
     public void onAlertRaised(Object sender, DeviceAlertEventArgs event) {
 
